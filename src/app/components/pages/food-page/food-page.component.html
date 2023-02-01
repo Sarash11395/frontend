@@ -1,4 +1,9 @@
-<div class="container">
+<app-not-found
+  [visible]="!food"
+  notFoundMessage="Food Not Found"
+  resetLinkText="Back To Homepage">
+</app-not-found>
+<div *ngIf="food" class="container">
   <img [src]="food.imageUrl" [alt]="food.name">
   <div class="details">
     <div class="header">
@@ -24,6 +29,6 @@
     <div class="price">
       <span>{{food.price | currency}}</span>
     </div>
-    <button>Add To Cart</button>
+    <button (click)="addToCart()">Add To Cart</button>
   </div>
 </div>
